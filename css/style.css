@@ -1,0 +1,8 @@
+:root{
+  color-scheme: dark;
+  --bg:#080706; --surface:#14110f; --line:#2a2420; --text:#f5f1ec; --muted:#a89f96;
+  --accent:#f08a24; --accent2:#c8451d;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
