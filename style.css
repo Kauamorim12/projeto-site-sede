@@ -31,7 +31,7 @@ nav a:hover{color:var(--text)}
   transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,138,36,.35)}
 .photo{background:#fff;border-radius:20px;object-fit:cover;display:block}
-.hero .photo{aspect-ratio:4/5;width:100%;max-width:420px;justify-self:end}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,560px))}
 
 /* Seções */
 section.block{padding:72px 0}
@@ -50,7 +50,7 @@ h2{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:28px}
 .social{display:flex;align-items:center;gap:14px;padding:20px;border-radius:18px;background:var(--surface);
   border:1px solid var(--line);transition:border-color .25s,transform .25s}
 .social:hover{border-color:var(--accent);transform:translateY(-4px)}
-.icon{width:46px;height:46px;border-radius:50%;background:#fff;flex:none}
+.icon{width:46px;height:46px;border-radius:50%;background:#fff;flex:none;object-fit:cover}
 .social b{display:block}
 .social small{color:var(--muted)}
 
