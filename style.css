@@ -1,0 +1,78 @@
+:root{
+  color-scheme: dark;
+  --bg:#080706; --surface:#14110f; --line:#2a2420; --text:#f5f1ec; --muted:#a89f96;
+  --accent:#f08a24; --accent2:#c8451d;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.container{width:min(1100px,100% - 40px);margin-inline:auto}
+
+/* Cabeçalho */
+header{position:fixed;inset:0 0 auto;z-index:20;padding:18px 0;transition:background .3s,padding .3s}
+header.scrolled{background:rgba(8,7,6,.92);padding:12px 0;border-bottom:1px solid var(--line)}
+header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:-.02em}
+nav{display:flex;gap:24px;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--text)}
+
+/* Hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;
+  background:radial-gradient(ellipse at 75% 40%,rgba(240,138,36,.22),transparent 60%),var(--bg)}
+.hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95;letter-spacing:-.04em;font-weight:800}
+.hero p{margin:22px 0 32px;color:var(--muted);max-width:38ch;font-size:1.05rem}
+.btn{display:inline-block;padding:16px 30px;border-radius:999px;font-weight:700;font-size:.9rem;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));color:#fff;cursor:pointer;border:0;
+  transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,138,36,.35)}
+.photo{background:#fff;border-radius:20px;object-fit:cover;display:block}
+.hero .photo{aspect-ratio:4/5;width:100%;max-width:420px;justify-self:end}
+
+/* Seções */
+section.block{padding:72px 0}
+h2{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:28px}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,560px))}
+.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.card .photo{border-radius:0;aspect-ratio:1600/666;width:100%;background:var(--bg)}
+.card .info{padding:18px 20px 22px}
+.card h3{font-size:1.1rem;font-weight:700}
+.card span{display:block;color:var(--muted);font-size:.88rem;margin-top:4px}
+
+/* Redes */
+.socials{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.social{display:flex;align-items:center;gap:14px;padding:20px;border-radius:18px;background:var(--surface);
+  border:1px solid var(--line);transition:border-color .25s,transform .25s}
+.social:hover{border-color:var(--accent);transform:translateY(-4px)}
+.icon{width:46px;height:46px;border-radius:50%;background:#fff;flex:none}
+.social b{display:block}
+.social small{color:var(--muted)}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+/* Aparecer ao rolar (JS) */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+
+/* Aviso de protótipo */
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);
+  background:#fff;color:#111;padding:12px 22px;border-radius:999px;font-size:.9rem;font-weight:600;
+  opacity:0;pointer-events:none;transition:.3s;z-index:30}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:768px){
+  nav{display:none}
+  .hero .container{grid-template-columns:1fr}
+  .hero .photo{justify-self:start;max-width:280px;aspect-ratio:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
